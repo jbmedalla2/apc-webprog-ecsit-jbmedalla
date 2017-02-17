@@ -34,7 +34,6 @@
             "Enter no data to end."
 
            PERFORM GetStudentDetails
-
            PERFORM UNTIL StudentDetails = SPACES
               WRITE StudentDetails
               PERFORM GetStudentDetails
@@ -47,10 +46,3 @@
             "MOB, DOB, Course, Gender"
            DISPLAY "NNNNNNNSSSSSSSSIIYYYYMMDDCCCCG"
            ACCEPT  StudentDetails.
-           DISPLAY "Student Number: ", StudentId.
-           DISPLAY "Student  Name: " ,StudentName.
-           DISPLAY "Birthdate: " , DateOfBirth.
-           DISPLAY "Course: ", CourseCode.
-           DISPLAY "Gender: ", Gender.
-
-       END PROGRAM YOUR-PROGRAM-NAME.
