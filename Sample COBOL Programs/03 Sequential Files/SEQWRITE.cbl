@@ -30,7 +30,7 @@
        MAIN-PROCEDURE.
        Begin.
            OPEN OUTPUT StudentFile
-           DISPLAY "Enter student details using template below."
+           DISPLAY "Enter student details using template below. "
             "Enter no data to end."
 
            PERFORM GetStudentDetails
