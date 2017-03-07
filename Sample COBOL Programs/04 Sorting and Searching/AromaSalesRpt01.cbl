@@ -65,7 +65,7 @@
          03 OIL-COST           PIC 99V99 OCCURS 30 TIMES.
 
        01  Report-Heading-Line         PIC X(44)
-            VALUE "              AROMAMORA SUMMARY SALES REPORT".
+            VALUE "             AROMAMORA SUMMARY SALES REPORT".
 
        01  Report-Heading-Underline.
         02  FILLER                  PIC X(13) VALUE SPACES.
@@ -73,6 +73,37 @@
 
        01  Topic-Heading.
         02  FILLER                  PIC BX(13) VALUE " CUSTOMER NAME".
+        02  FILLER                  PIC X(8) VALUE SPACES.
+        02  FILLER                  PIC X(10) VALUE "CUST-ID   ".
+        02  FILLER                  PIC X(8) VALUE "SALES   ".
+        02  FILLER                  PIC X(11) VALUE "QTY SOLD   ".
+        02  FILLER                  PIC X(11) VALUE "SALES VALUE".
+
+       01  Custom-Sales-Line.
+        02  Print_CustName          PIC X(20).
+        02  Print_CusID             PIC BBB9(5).
+        02  Print_Sales             PIC BBBBBZZ9.
+        02  Print_QtySold           PIC BBBBBZZ,ZZ9.
+        02  Print_SalesValue        PIC BBBB$$$,$$9.99.
+
+        01  Total-Sales-Line.
+        02  FILLER                  PIC X(33) VALUE SPACES.
+        02  FILLER                  PIC X(19) VALUE
+              "TOTAL SALES       :".
+        02  Print_TotalSales        PIC BBBBBBZZ,ZZ9.
+
+        01  Total-Qty-Sold-Line.
+        02  FILLER                  PIC X(33) VALUE SPACES.
+        02  FILLER                  PIC X(19) VALUE
+              "TOTAL QTY SOLD    :".
+        02  Print_TotalQtySold      PIC BBBBBZZZ,ZZ9.
+
+       01  Total-Sales-Value-Line.
+        02  FILLER                  PIC X(33) VALUE SPACES.
+        02  FILLER                  PIC X(19) VALUE
+             "TOTAL SALES VALUE :".
+        02  Print_TotalSalesValue   PIC B$$$$,$$9.99.
+
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
             STOP RUN.
