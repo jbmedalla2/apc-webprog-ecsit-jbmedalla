@@ -1,9 +1,3 @@
-      ******************************************************************
-      * Author:
-      * Date:
-      * Purpose:
-      * Tectonics: cobc
-      ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. YOUR-PROGRAM-NAME.
        ENVIRONMENT DIVISION.
@@ -12,11 +6,10 @@
               SELECT Sales ASSIGN TO "SALES.DAT"
                         ORGANIZATION IS LINE SEQUENTIAL.
 
-              SELECT SortSale ASSIGN TO "SORTSORT.TMP".
+              SELECT SortSale ASSIGN TO "SORTSALE.TMP".
 
               SELECT AromaSales ASSIGN TO "AROMASALES.RPT"
                         ORGANIZATION IS LINE SEQUENTIAL.
-
 
               SELECT Workfile ASSIGN TO "WORKFILE.DAT"
                         ORGANIZATION IS LINE SEQUENTIAL.
@@ -33,7 +26,6 @@
          03  S-Oil-Name         PIC 99.
         02 S-Unit-Size             PIC 99.
         02 S-Units-Sold            PIC 999.
-
 
        FD SortSale.
        01 Sorted-Rec        PIC X(33).
@@ -104,7 +96,48 @@
              "TOTAL SALES VALUE :".
         02  Print_TotalSalesValue   PIC B$$$$,$$9.99.
 
+       01  Final_Totals.
+        02  Total_Sales             PIC 9(5)    VALUE ZEROS.
+        02  Total_Qty-Sold          PIC 9(6)    VALUE ZEROS.
+        02  Total_SalesValue        PIC 9(6)V99 VALUE ZEROS.
+
+       01  Temp_Variables.
+        02  Sale_QtySold           PIC 99999.
+        02  ValueOfSale           PIC 999999V99.
+        02  Prev_CustId            PIC X(5).
+
+
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
+           SORT WorkFile ON ASCENDING WF-Cust-Name
+           INPUT PROCEDURE IS Select-Essential-Oils
+           OUTPUT PROCEDURE IS Print-Summary-Report.
             STOP RUN.
+
+            Select-Essential-Oils.
+           OPEN INPUT Sales.
+           READ Sales
+               AT END SET End-Of-Sales-File TO TRUE
+           END-READ.
+
+           PERFORM UNTIL End-Of-Sales-File
+               IF Essential-Oil
+                   RELEASE Work-Rec FROM Sales-Rec
+               END-IF
+               READ Sales
+                   AT END SET End-Of-Sales-File TO TRUE
+               END-READ
+           END-PERFORM.
+
+           CLOSE Sales.
+
+       Print-Summary-Report.
+           OPEN OUTPUT AromaSales.
+           OPEN OUTPUT SortSale.
+           WRITE Print-Line FROM Report-Heading-Line
+            AFTER ADVANCING 1 LINE.
+           WRITE Print-Line FROM Report-Heading-Underline
+            AFTER ADVANCING 1 LINE.
+           WRITE Print-Line FROM Topic-Heading
+            AFTER ADVANCING 3 LINES.
        END PROGRAM YOUR-PROGRAM-NAME.
