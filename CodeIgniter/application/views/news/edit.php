@@ -10,27 +10,27 @@
         </tr>
         <tr>
             <td><label for="text">Nickname</label></td>
-            <td><input type="input" name="Nickname" size="50"></td>
+            <td><input type="input" name="Nickname" size="50" value="<?php echo $news_item['Nickname'] ?>" /></td>
         </tr>
 		<tr>
             <td><label for="text">Email Address</label></td>
-            <td><input type="input" name="Email_Address" size="50"></td>
+            <td><input type="input" name="Email_Address" size="50" value="<?php echo $news_item['Email_Address'] ?>" /></td>
         </tr>
 		<tr>
             <td><label for="text">Home Address</label></td>
-            <td><textarea name="Home_Address" rows = "2" cols = "52"></textarea></td>
+            <td><textarea name="Home_Address" rows = "2" cols = "52" value="<?php echo $news_item['Home_Address'] ?>" /></textarea></td>
         </tr>
 		<tr>
             <td><label for="text">Gender</label></td>
-            <td><input type="input" name="Gender" size="2"></td>
+            <td><input type="input" name="Gender" size="2" value="<?php echo $news_item['Gender'] ?>" /></td>
         </tr>
 		<tr>
             <td><label for="text">Cellphone Number</label></td>
-            <td><input type="input" name="Cellphone_Number" size="50"></td>
+            <td><input type="input" name="Cellphone_Number" size="50" value="<?php echo $news_item['Cellphone_Number'] ?>" /></td>
         </tr>
 		<tr>
             <td><label for="text">Comments</label></td>
-             <td><textarea name="Comments" rows = "5" cols = "52"></textarea></td>
+             <td><textarea name="Comments" rows = "5" cols = "52" value="<?php echo $news_item['Comments'] ?>" /></textarea></td>
         </tr>
             <td></td>
             <td><input type="submit" name="submit" value="Edit news item" /></td>
