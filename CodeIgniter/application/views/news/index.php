@@ -9,15 +9,16 @@
 		<td><strong>Gender</strong></td>
 		<td><strong>Cellphone Number</strong></td>
 		<td><strong>Comments</strong></td>
+		<td><strong>Action</strong></td>
     </tr>
 <?php foreach ($news as $news_item): ?>
         <tr>
-            <td><?php echo $news_item['Complete Name']; ?></td>
+            <td><?php echo $news_item['Complete_Name']; ?></td>
 			<td><?php echo $news_item['Nickname']; ?></td>
-			<td><?php echo $news_item['Email Address']; ?></td>
-			<td><?php echo $news_item['Home Address']; ?></td>
+			<td><?php echo $news_item['Email_Address']; ?></td>
+			<td><?php echo $news_item['Home_Address']; ?></td>
 			<td><?php echo $news_item['Gender']; ?></td>
-			<td><?php echo $news_item['Cellphone Number']; ?></td>
+			<td><?php echo $news_item['Cellphone_Number']; ?></td>
 			<td><?php echo $news_item['Comments']; ?></td>
             <td>
                 <a href="<?php echo site_url('news/'.$news_item['slug']); ?>">View</a> |

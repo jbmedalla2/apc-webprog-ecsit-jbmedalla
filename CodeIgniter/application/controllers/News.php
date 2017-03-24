@@ -27,7 +27,7 @@ class News extends CI_Controller {
             show_404();
         }
  
-        $data['Complete Name'] = $data['news_item']['Complete Name'];
+        $data['Complete_Name'] = $data['news_item']['Complete Name'];
  
         $this->load->view('templates/header', $data);
         $this->load->view('news/view', $data);
@@ -41,9 +41,14 @@ class News extends CI_Controller {
  
         $data['title'] = 'Membership Form';
  
-        $this->form_validation->set_rules('Complete Name', 'Complete Name', 'required');
+        $this->form_validation->set_rules('Complete_Name', 'Complete Name', 'required');
         $this->form_validation->set_rules('Nickname', 'Nickname', 'required');
- 
+		$this->form_validation->set_rules('Email_Address', 'Valid Email Address', 'required');
+		$this->form_validation->set_rules('Home_Address');
+		$this->form_validation->set_rules('Gender', 'Gender', 'required');
+		$this->form_validation->set_rules('Cellphone_Number', 'Valid Cellpone Number', 'required');
+		$this->form_validation->set_rules('Comments');
+		
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
@@ -75,8 +80,13 @@ class News extends CI_Controller {
         $data['title'] = 'Edit a membership form';        
         $data['news_item'] = $this->news_model->get_news_by_id($id);
         
-        $this->form_validation->set_rules('Complete Name', 'Complete Name', 'required');
+        $this->form_validation->set_rules('Complete_Name', 'Complete_Name', 'required');
         $this->form_validation->set_rules('Nickname', 'Nickname', 'required');
+		$this->form_validation->set_rules('Email_Address', 'Valid Email Address', 'required');
+		$this->form_validation->set_rules('Home_Address');
+		$this->form_validation->set_rules('Gender', 'Gender', 'required');
+		$this->form_validation->set_rules('Cellphone_Number', 'Valid Cellpone Number', 'required');
+		$this->form_validation->set_rules('Comments');
  
         if ($this->form_validation->run() === FALSE)
         {

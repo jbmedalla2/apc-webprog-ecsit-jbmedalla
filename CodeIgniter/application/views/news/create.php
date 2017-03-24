@@ -6,7 +6,7 @@
     <table>
         <tr>
             <td><label for="Complete Name">Complete Name</label></td>
-            <td><input type="input" name="Complete Name" size="50" /></td>
+            <td><input type="input" name="Complete_Name" size="50" /></td>
         </tr>
         <tr>
             <td><label for="Nickname">Nickname</label></td>
@@ -14,11 +14,11 @@
         </tr>
 		<tr>
             <td><label for="Email Address">Email Address</label></td>
-            <td><input type="input" name="Email Address" size="50"></td>
+            <td><input type="input" name="Email_Address" size="50"></td>
         </tr>
 		<tr>
             <td><label for="Home Address">Home Address</label></td>
-            <td><textarea name="Home Address" rows = "2" cols = "52"></textarea></td>
+            <td><textarea name="Home_Address" rows = "2" cols = "52"></textarea></td>
         </tr>
 		<tr>
             <td><label for="Gender">Gender</label></td>
@@ -26,7 +26,7 @@
         </tr>
 		<tr>
             <td><label for="Cellphone Number">Cellphone Number</label></td>
-            <td><input type="input" name="Cellphone Number" size="50"></td>
+            <td><input type="input" name="Cellphone_Number" size="50"></td>
         </tr>
 		<tr>
             <td><label for="Comments">Comments</label></td>
